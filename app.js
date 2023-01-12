@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');  
 
 app.use(express.static("public"));
+const port = process.env.PORT;
 
 mongoose.set("strictQuery", false);
 mongoose.connect("mongodb+srv://admin-ayush:Ayush@cluster0.ebimjsf.mongodb.net/todolistDB", () => {
@@ -149,7 +150,7 @@ app.get("/about", function(req, res){
 })
 
 
-app.listen(3000, function(){
+app.listen(port || 3000, function(){
     console.log("Server is running on port 3000");
 })
 
